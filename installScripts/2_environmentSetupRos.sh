@@ -12,3 +12,4 @@ cd ~/catkin_ws/
 catkin_make
 
 echo $ROS_PACKAGE_PATH
+read -rsp $'Press enter to continue...\n'
