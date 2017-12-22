@@ -17,3 +17,6 @@ read -rsp $'Press enter to continue...\n'
 LINE='. ~/catkin_ws/devel/setup.bash'
 FILE=~/.bashrc
 grep -qF "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
+
+# install used package 
+sudo apt-get install ros-kinetic-video-stream-opencv
