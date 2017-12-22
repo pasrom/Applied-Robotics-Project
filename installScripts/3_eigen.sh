@@ -10,5 +10,3 @@
 #cmake .
 
 sudo apt -y install libeigen3-dev
-echo "libeigen3-dev installed"
-read -rsp $'Press enter to continue...\n'
