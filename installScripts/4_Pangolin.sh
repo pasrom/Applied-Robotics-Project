@@ -13,7 +13,10 @@ sudo apt-get -y install doxygen
 #building
 cd ~/workspace
 git clone https://github.com/stevenlovegrove/Pangolin.git
+
 cd Pangolin
+# the latest commit gives an built 6f45f8f error
+git checkout 7ea6e53
 mkdir build
 cd build
 cmake ..

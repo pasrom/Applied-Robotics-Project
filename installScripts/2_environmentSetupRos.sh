@@ -13,3 +13,7 @@ catkin_make
 
 echo $ROS_PACKAGE_PATH
 read -rsp $'Press enter to continue...\n'
+
+LINE='. ~/catkin_ws/devel/setup.bash'
+FILE=~/.bashrc
+grep -qF "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
