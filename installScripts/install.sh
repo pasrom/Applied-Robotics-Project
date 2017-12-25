@@ -18,7 +18,9 @@ read -rsp $'Press enter to continue...\n'
 ./6_DBoW2_eigen_g2o_.sh
 echo "finished 6_DBoW2_eigen_g2o_.sh"
 read -rsp $'Press enter to continue...\n'
-./7_orb_slam2.sh
+./7_orb_slam2A.sh
+source ~/.bashrc
+./7_orb_slam2B.sh
 #bash -c './7_orb_slam2.sh ; bash '
 echo "finished 7_orb_slam2.sh"
 read -rsp $'Press enter to continue...\n'

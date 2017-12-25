@@ -2,7 +2,6 @@
 
 echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
-read -rsp $'Press enter to continue...\n'
 #
 source /opt/ros/kinetic/setup.bash
 
@@ -12,7 +11,6 @@ cd ~/catkin_ws/
 catkin_make
 
 echo $ROS_PACKAGE_PATH
-read -rsp $'Press enter to continue...\n'
 
 LINE='. ~/catkin_ws/devel/setup.bash'
 FILE=~/.bashrc
