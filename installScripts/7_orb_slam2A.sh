@@ -22,8 +22,3 @@ LINE='export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:~/workspace/ORB_SLAM2/Examples
 FILE=~/.bashrc
 grep -qF "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
 
-# restart bash
-exec bash
-
-export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:~/workspace/ORB_SLAM2/Examples/ROS
-
