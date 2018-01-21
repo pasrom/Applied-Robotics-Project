@@ -23,4 +23,4 @@ grep -qF "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
 sudo apt-get install ros-kinetic-video-stream-opencv
 
 # coppy the camera calibration file to the right folder
-cp -a ../camera_calibration_files/. ~/.ros/camera_info
+cp -a ~/workspace/Applied-Robotics-Project/camera_calibration_files/. ~/.ros/camera_info
