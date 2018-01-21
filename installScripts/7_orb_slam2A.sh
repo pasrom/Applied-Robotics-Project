@@ -5,7 +5,9 @@
 echo "install ORB SLAM2"
 cd ~/workspace
 #git clone https://github.com/raulmur/ORB_SLAM2.git ORB_SLAM2
-git clone https://github.com/pasrom/ORB_SLAM2.git ORB_SLAM2
+#git clone https://github.com/pasrom/ORB_SLAM2.git ORB_SLAM2
+# clone the branch pointloud-test
+git clone -b pointcloud-test https://github.com/pasrom/ORB_SLAM2.git ORB_SLAM2
 
 cd ORB_SLAM2
 chmod +x build.sh
