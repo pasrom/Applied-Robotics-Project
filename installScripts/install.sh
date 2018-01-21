@@ -15,7 +15,7 @@ if [  "$architecture" = "armfh" ]; then
 # this steps are only for the raspy
 #
 	./install_pigpio.sh
-	./get_gopigo.sh
+	bash get_gopigo.sh
 	./add_bashrc.sh
 	echo "finished pigpio, gopigo and bashrc"
 	read -rsp $'Press enter to continue...\n'
@@ -23,7 +23,7 @@ else
 #
 # this steps are only for the master / or other clients not raspy
 #	
-	./get_gopigo.sh
+	bash get_gopigo.sh
 	. /opt/ros/kinetic/setup.bash
 	./add_bashrc.sh
 	echo "finished gopigo and bashrc"
