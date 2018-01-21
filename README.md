@@ -1,7 +1,7 @@
 # Applied-Robotics-Project
-This is a project done in the course applied robotics
+This is a project done in the course applied robotics.
 
- 1.  You need to create a folder named workspace in ~/, for example
+ 1.  You need to create a folder named workspace in `~/`, for example
 			
 			mkdir /home/roman/workspace
  2. clone this repo to your computer and to the raspberry pi
@@ -9,19 +9,25 @@ This is a project done in the course applied robotics
 		 git clone https://github.com/pasrom/Applied-Robotics-Project.git
 		 cd Applied-Robotics-Project
 		 cd installScripts
-		 ./install.sh
+		 
+ 3. run `install.sh` to automatically install ROS and ORB_SLAM2 with all its dependencies.
+
+		  ./install.sh
+
 	maybe you have to make it executable first
 
 		 chmod +x install.sh
-		 
- 3. run `install.sh` to automatically install ROS and ORB_SLAM2 with all its dependencies.
 	- on the raspberry pi it will only install ROS and pigpio library and gopigo.
+
+ 4. Go grab a :coffee:, but don't forget to press enter :smile:
+
 ## Master
 Following command is starting ORB_SLAM2, Camera republisher, rviz, roboter pose updater and rqt gui
 	   
 	   roslaunch fin_starter Master.launch
 ## Raspberry Pi
-ssh into your raspberry pi
+ssh into your raspberry pi.
+
 **this has to be done the first time:**
 	
 	su root
@@ -57,3 +63,7 @@ After you added or changed a environment variable in `~/.bashrc` you have to sta
  **Virtual Machine**
 If you are using a virtual machine, make sure you turned of the 3D acceleration. Otherwise the ORB_SLAM2 will not work, because Pangoling throws an error.
 
+**not enough memory**
+If building is throwing errors, first check if there is enough memory left. If not, run [this](https://github.com/pasrom/Applied-Robotics-Project/blob/master/installScripts/createSwapfile.sh) script.
+
+	sudo ./createSwapfile.sh
