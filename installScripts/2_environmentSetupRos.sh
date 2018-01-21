@@ -1,6 +1,9 @@
  #!/bin/bash
 
-echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+LINEA='source /opt/ros/kinetic/setup.bash'
+FILE=~/.bashrc
+grep -qF "$LINEA" "$FILE" || echo "$LINEA" >> "$FILE"
+
 source ~/.bashrc
 #
 source /opt/ros/kinetic/setup.bash
@@ -18,3 +21,6 @@ grep -qF "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
 
 # install used package 
 sudo apt-get install ros-kinetic-video-stream-opencv
+
+# coppy the camera calibration file to the right folder
+cp -a ../camera_calibration_files/. ~/.ros/camera_info
