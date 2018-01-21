@@ -1,5 +1,5 @@
 # Applied-Robotics-Project
-This is a project done in the course applied robotics.
+This is a project done in the course applied robotics. It's about a mobile roboter, which has a mounted camera on it. This camera is used to slam with [ORB_SLAM2](https://github.com/pasrom/ORB_SLAM2) . The roboter is controlled by a differential drive and has a distance measurement, which is used for speed and pose determination. [ROS](http://www.ros.org)-Kinetic is used to bring all parts together. It is testet with Ubuntu Mate 16.04.2 LTS, both at the master and at the raspberry pi.
 
  1.  You need to create a folder named workspace in `~/`, for example
 			
@@ -48,6 +48,8 @@ If you want to change the IP-address of the master you can do it in this [script
 ## Known Bugs
 
  **Make sure, that the environment variables are set correctly.**
+ 
+ Your `~/.bashrc` should look similar like this (scrol to the end of the file):
  
 	source /opt/ros/kinetic/setup.bash
 	. ~/catkin_ws/devel/setup.bash
