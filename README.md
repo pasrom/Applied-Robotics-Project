@@ -28,7 +28,7 @@ Following command is starting ORB_SLAM2, Camera republisher, rviz, roboter pose 
 ## Raspberry Pi
 ssh into your raspberry pi.
 
-**this has to be done the first time:**
+**This has to be done the first time:**
 	
 	su root
 	/home/$user/workspace/Applied-Robotics-Project/installScripts/add_bashrc.sh
@@ -60,10 +60,14 @@ Important is, that the line `export ROS_PACKAGE_PATH=...` is at the end.
 **Changed `~/.bashrc`**
 After you added or changed a environment variable in `~/.bashrc` you have to start a new terminal to activate them.
 
+
  **Virtual Machine**
+ 
 If you are using a virtual machine, make sure you turned of the 3D acceleration. Otherwise the ORB_SLAM2 will not work, because Pangoling throws an error.
 
-**not enough memory**
+**Not enough memory**
+
+
 If building is throwing errors, first check if there is enough memory left. If not, run [this](https://github.com/pasrom/Applied-Robotics-Project/blob/master/installScripts/createSwapfile.sh) script.
 
 	sudo ./createSwapfile.sh
