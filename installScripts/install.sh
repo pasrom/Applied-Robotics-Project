@@ -9,7 +9,6 @@ function debuging() {
 architecture="$(dpkg --print-architecture)"
 echo Installing on $architecture
 
-read -rsp $'Press enter to ...\n'
 ./1_installRos.sh
 echo "finished 1_installRos.sh"
 debuging $1

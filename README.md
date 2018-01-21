@@ -58,6 +58,8 @@ If you want to change the IP-address of the master you can do it in this [script
 Important is, that the line `export ROS_PACKAGE_PATH=...` is at the end.
 
 **Changed `~/.bashrc`**
+
+
 After you added or changed a environment variable in `~/.bashrc` you have to start a new terminal to activate them.
 
 
