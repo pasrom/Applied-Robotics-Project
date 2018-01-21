@@ -19,7 +19,7 @@ This is a project done in the course applied robotics.
 		 chmod +x install.sh
 	- on the raspberry pi it will only install ROS and pigpio library and gopigo.
 
- 4. Go grab a :coffee:, but don't forget to press enter :smile:
+ 4. Go grab a :coffee:...
 
 ## Master
 Following command is starting ORB_SLAM2, Camera republisher, rviz, roboter pose updater and rqt gui
