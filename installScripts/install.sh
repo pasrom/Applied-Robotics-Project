@@ -24,6 +24,9 @@ else
 # this steps are only for the master / or other clients not raspy
 #	
 	./get_gopigo.sh
+	./add_bashrc.sh
+	echo "finished gopigo and bashrc"
+	read -rsp $'Press enter to continue...\n'
 	./3_eigen.sh
 	echo "finished 3_eigen.sh"
 	read -rsp $'Press enter to continue...\n'
