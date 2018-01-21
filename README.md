@@ -4,9 +4,16 @@ This is a project done in the course applied robotics
  1.  You need to create a folder named workspace in ~/, for example
 			
 			mkdir /home/roman/workspace
- 2. clone this repo
+ 2. clone this repo to your computer and to the raspberry pi
 	 
 		 git clone https://github.com/pasrom/Applied-Robotics-Project.git
+		 cd Applied-Robotics-Project
+		 cd installScripts
+		 ./install.sh
+	maybe you have to make it executable first
+
+		 chmod +x install.sh
+		 
  3. run `install.sh` to automatically install ROS and ORB_SLAM2 with all its dependencies.
 	- on the raspberry pi it will only install ROS and pigpio library and gopigo.
 ## Master
@@ -14,7 +21,13 @@ Following command is starting ORB_SLAM2, Camera republisher, rviz, roboter pose 
 	   
 	   roslaunch fin_starter Master.launch
 ## Raspberry Pi
-ssh into your raspberry pi and start the motor
+ssh into your raspberry pi
+**this has to be done the first time:**
+	
+	su root
+	/home/$user/workspace/Applied-Robotics-Project/installScripts/add_bashrc.sh
+
+Starting the motor and the distance measurement
 
     su root
     rosrun motor_cpp motor_cpp
@@ -28,8 +41,8 @@ If you want to change the IP-address of the master you can do it in this [script
 
 ## Known Bugs
 
-### Make sure, that the environment variables are set correctly.
-
+ **Make sure, that the environment variables are set correctly.**
+ 
 	source /opt/ros/kinetic/setup.bash
 	. ~/catkin_ws/devel/setup.bash
 	source ~/gopigo_ws/devel/setup.bash
@@ -38,6 +51,9 @@ If you want to change the IP-address of the master you can do it in this [script
 
 Important is, that the line `export ROS_PACKAGE_PATH=...` is at the end.
 
-### Virtual Machine
+**Changed `~/.bashrc`**
+After you added or changed a environment variable in `~/.bashrc` you have to start a new terminal to activate them.
+
+ **Virtual Machine**
 If you are using a virtual machine, make sure you turned of the 3D acceleration. Otherwise the ORB_SLAM2 will not work, because Pangoling throws an error.
 
