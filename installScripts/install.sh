@@ -1,18 +1,22 @@
  #!/bin/bash
+
+function debuging() {
+	if [  "$1" = "debug" ]; then
+		read -rsp $'Press enter to continue...\n'
+	fi
+}
+
 architecture="$(dpkg --print-architecture)"
 echo Installing on $architecture
 
+read -rsp $'Press enter to ...\n'
 ./1_installRos.sh
 echo "finished 1_installRos.sh"
-if [  "$1" = "debug" ]; then
-	read -rsp $'Press enter to continue...\n'
-fi
+debuging $1
 
 ./2_environmentSetupRos.sh
 echo "finished 2_environmentSetupRos.sh"
-if [  "$1" = "debug" ]; then
-	read -rsp $'Press enter to continue...\n'
-fi
+debuging $1
 
 #
 if [  "$architecture" = "armfh" ]; then
@@ -23,9 +27,7 @@ if [  "$architecture" = "armfh" ]; then
 	bash get_gopigo.sh
 	./add_bashrc.sh
 	echo "finished pigpio, gopigo and bashrc"
-	if [  "$1" = "debug" ]; then
-	read -rsp $'Press enter to continue...\n'
-	fi
+	debuging $1
 else
 #
 # this steps are only for the master / or other clients not raspy
@@ -34,39 +36,27 @@ else
 	. /opt/ros/kinetic/setup.bash
 	./add_bashrc.sh
 	echo "finished gopigo and bashrc"
-	if [  "$1" = "debug" ]; then
-		read -rsp $'Press enter to continue...\n'
-	fi
+	debuging $1
 
 	./3_eigen.sh
 	echo "finished 3_eigen.sh"
-	if [  "$1" = "debug" ]; then
-		read -rsp $'Press enter to continue...\n'
-	fi
+	debuging $1
 
 	./4_Pangolin.sh
 	echo "finished 4_Pangolin.sh"
-	if [  "$1" = "debug" ]; then
-		read -rsp $'Press enter to continue...\n'
-	fi
+	debuging $1
 
 	./5_OpenCV.sh
 	echo "finished 5_OpenCV.sh"
-	if [  "$1" = "debug" ]; then
-		read -rsp $'Press enter to continue...\n'
-	fi
+	debuging $1
 
 	./6_DBoW2_eigen_g2o_.sh
 	echo "finished 6_DBoW2_eigen_g2o_.sh"
-	if [  "$1" = "debug" ]; then
-		read -rsp $'Press enter to continue...\n'
-	fi
+	debuging $1
 
 	./7_orb_slam2A.sh
 	source ~/.bashrc
 	./7_orb_slam2B.sh
 	echo "finished 7_orb_slam2.sh"
-	if [  "$1" = "debug" ]; then	
-		read -rsp $'Press enter to continue...\n'
-	fi
+	debuging $1
 fi
