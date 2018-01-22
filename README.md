@@ -1,5 +1,8 @@
+
 # Applied-Robotics-Project
 This is a project done in the course applied robotics. It's about a mobile roboter, which has a mounted camera on it. This camera is used to slam with [ORB_SLAM2](https://github.com/pasrom/ORB_SLAM2) . The roboter is controlled by a differential drive and has a distance measurement, which is used for speed and pose determination. [ROS](http://www.ros.org)-Kinetic is used to bring all parts together. It is testet with Ubuntu Mate 16.04.2 LTS, both at the master and at the raspberry pi.
+
+# Procedure
 
  1.  You need to create a folder named workspace in `~/`, for example
 			
@@ -30,8 +33,14 @@ ssh into your raspberry pi.
 
 **This has to be done the first time:**
 	
+   `$user` is your username, created at the raspberry pi. Also make sure, that therre is only **one** username, otherwise the script may fail.
+	
 	su root
 	/home/$user/workspace/Applied-Robotics-Project/installScripts/add_bashrc.sh
+
+
+----------
+
 
 Starting the motor and the distance measurement
 
