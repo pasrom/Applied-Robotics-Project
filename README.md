@@ -13,7 +13,6 @@ Run this procedure at the master computer and also at the raspberry pi. On the r
  2.  You need to create a folder named workspace in `~/`, for example
 			
 			mkdir ~/workspace
-
  3. clone this repo to your computer and to the raspberry pi
 	 
 		 cd ~/workspace
@@ -28,7 +27,7 @@ Run this procedure at the master computer and also at the raspberry pi. On the r
 
 		 chmod +x install.sh
 
- 5. Go grab a :coffee:...
+ 5. Go grab :coffee: :coffee: :coffee: ...
 
 # Starting the publishers and subscribers
 ## Master
