@@ -1,7 +1,7 @@
  #!/bin/bash
 
-systemctl enable sshguard
-systemctl start sshguard
-systemctl enable ssh
-systemctl start ssh
+sudo systemctl enable sshguard
+sudo systemctl start sshguard
+sudo systemctl enable ssh
+sudo systemctl start ssh
 
