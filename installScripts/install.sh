@@ -9,6 +9,11 @@ function debugging() {
 architecture="$(dpkg --print-architecture)"
 echo Installing on $architecture
 
+# we need a root user for starting the pigpio library
+if [  "$architecture" = "armhf" ]; then
+	sudo cp ~/.bashrc /root/.bashrc
+fi
+
 ./1_installRos.sh
 echo "finished 1_installRos.sh"
 debugging $1
@@ -27,6 +32,12 @@ if [  "$architecture" = "armhf" ]; then
 	./add_bashrc.sh
 	echo "finished pigpio, gopigo and bashrc"
 	debugging $1
+	
+	./raspi_config.sh
+	echo "finished eneabling ssh"
+	debugging $1
+
+	./set_root_pw.sh	
 else
 #
 # this steps are only for the master / or other clients not raspy
