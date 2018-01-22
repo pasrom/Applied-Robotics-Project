@@ -11,8 +11,7 @@ This is a project done in the course applied robotics. It's about a mobile robot
 	 
 		 cd ~/workspace
 		 git clone https://github.com/pasrom/Applied-Robotics-Project.git
-		 cd Applied-Robotics-Project
-		 cd installScripts
+		 cd Applied-Robotics-Project/installScripts
 		 
  3. run `install.sh` to automatically install ROS and ORB_SLAM2 with all its dependencies.
 
