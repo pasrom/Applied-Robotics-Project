@@ -12,20 +12,20 @@ Run this procedure at the master computer and also at the raspberry pi. On the r
 		
  2.  You need to create a folder named workspace in `~/`, for example
 			
-			mkdir ~/workspace
+		mkdir ~/workspace
  3. clone this repo to your computer and to the raspberry pi
 	 
-		 cd ~/workspace
-		 git clone https://github.com/pasrom/Applied-Robotics-Project.git
-		 cd Applied-Robotics-Project/installScripts
+		cd ~/workspace
+		git clone https://github.com/pasrom/Applied-Robotics-Project.git
+		cd Applied-Robotics-Project/installScripts
 		 
  4. run `install.sh` to automatically install ROS and ORB_SLAM2 with all its dependencies.
 
-		  ./install.sh
+		 ./install.sh
 
 	maybe you have to make it executable first
 
-		 chmod +x install.sh
+		chmod +x install.sh
 
  5. Go grab :coffee: :coffee: :coffee: ...
 
@@ -33,10 +33,10 @@ Run this procedure at the master computer and also at the raspberry pi. On the r
 ## Master
 First start the roscore
 
-		roscore
+	roscore
 Following command is starting ORB_SLAM2, Camera republisher, rviz, roboter pose updater, map creator and rqt gui
 	   
-	   roslaunch fin_starter Master.launch
+	roslaunch fin_starter Master.launch
 ## Raspberry Pi
 ssh into your raspberry pi.
 
@@ -121,4 +121,3 @@ search for the `/dev/diskX` entry
 	- [x] Log in automatically
 	- [ ] Require my password to log in
  4. Reboot
-
