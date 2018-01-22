@@ -69,4 +69,8 @@ else
 	./7_orb_slam2B.sh
 	echo "finished 7_orb_slam2.sh"
 	debugging $1
+
+#install turtlebot-teleop package
+	sudo apt install ros-kinetic-turtlebot-teleop
+	echo "finished turtlebot-teleop"
 fi

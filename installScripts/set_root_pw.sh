@@ -2,7 +2,7 @@
 
 statusRoot="$(sudo passwd --status root)"
 echo $statusRoot
-if [[ $statusRoot = *"root NP"* ]]; then
+if [[ $statusRoot = *"root NP"* ]] || [[ $statusRoot = *"root L"* ]]; then
 	echo "set a root password!"
 	sudo passwd
 else
