@@ -6,16 +6,21 @@ This is a project done in the course applied robotics. It's about a mobile robot
 
 Run this procedure at the master computer and also at the raspberry pi. On the raspberry pi it will only install ROS and pigpio library and gopigo.
 
- 1.  You need to create a folder named workspace in `~/`, for example
+ 1. Maybe you need to install git first
+	
+		sudo apt-get update && sudo apt install git
+		
+ 2.  You need to create a folder named workspace in `~/`, for example
 			
 			mkdir ~/workspace
- 2. clone this repo to your computer and to the raspberry pi
+
+ 3. clone this repo to your computer and to the raspberry pi
 	 
 		 cd ~/workspace
 		 git clone https://github.com/pasrom/Applied-Robotics-Project.git
 		 cd Applied-Robotics-Project/installScripts
 		 
- 3. run `install.sh` to automatically install ROS and ORB_SLAM2 with all its dependencies.
+ 4. run `install.sh` to automatically install ROS and ORB_SLAM2 with all its dependencies.
 
 		  ./install.sh
 
@@ -23,7 +28,7 @@ Run this procedure at the master computer and also at the raspberry pi. On the r
 
 		 chmod +x install.sh
 
- 4. Go grab a :coffee:...
+ 5. Go grab a :coffee:...
 
 # Starting the publishers and subscribers
 ## Master
@@ -116,3 +121,5 @@ search for the `/dev/diskX` entry
 	 check the following
 	- [x] Log in automatically
 	- [ ] Require my password to log in
+ 4. Reboot
+
