@@ -2,7 +2,9 @@
 # Applied-Robotics-Project
 This is a project done in the course applied robotics. It's about a mobile roboter, which has a mounted camera on it. This camera is used to slam with [ORB_SLAM2](https://github.com/pasrom/ORB_SLAM2) . The roboter is controlled by a differential drive and has a distance measurement, which is used for speed and pose determination. [ROS](http://www.ros.org)-Kinetic is used to bring all parts together. It is testet with Ubuntu Mate 16.04.2 LTS, both at the master and at the raspberry pi.
 
-# Procedure
+# Installation procedure
+
+Run this procedure at the master computer and also at the raspberry pi. On the raspberry pi it will only install ROS and pigpio library and gopigo.
 
  1.  You need to create a folder named workspace in `~/`, for example
 			
@@ -20,12 +22,12 @@ This is a project done in the course applied robotics. It's about a mobile robot
 	maybe you have to make it executable first
 
 		 chmod +x install.sh
-	- on the raspberry pi it will only install ROS and pigpio library and gopigo.
 
  4. Go grab a :coffee:...
 
+# Starting the publishers and subscribers
 ## Master
-Following command is starting ORB_SLAM2, Camera republisher, rviz, roboter pose updater and rqt gui
+Following command is starting ORB_SLAM2, Camera republisher, rviz, roboter pose updater, map creator and rqt gui
 	   
 	   roslaunch fin_starter Master.launch
 ## Raspberry Pi
