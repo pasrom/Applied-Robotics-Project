@@ -6,9 +6,10 @@ This is a project done in the course applied robotics. It's about a mobile robot
 
  1.  You need to create a folder named workspace in `~/`, for example
 			
-			mkdir /home/roman/workspace
+			mkdir ~/workspace
  2. clone this repo to your computer and to the raspberry pi
 	 
+		 cd ~/workspace
 		 git clone https://github.com/pasrom/Applied-Robotics-Project.git
 		 cd Applied-Robotics-Project
 		 cd installScripts
