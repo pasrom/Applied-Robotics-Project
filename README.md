@@ -27,11 +27,16 @@ Run this procedure at the master computer and also at the raspberry pi. On the r
 
 # Starting the publishers and subscribers
 ## Master
+First start the roscore
+
+		roscore
 Following command is starting ORB_SLAM2, Camera republisher, rviz, roboter pose updater, map creator and rqt gui
 	   
 	   roslaunch fin_starter Master.launch
 ## Raspberry Pi
 ssh into your raspberry pi.
+
+	ssh roman@192.168.0.105
 
 **This has to be done the first time:**
 	
@@ -86,3 +91,28 @@ If you are using a virtual machine, make sure you turned of the 3D acceleration.
 If building is throwing errors, first check if there is enough memory left. If not, run [this](https://github.com/pasrom/Applied-Robotics-Project/blob/master/installScripts/createSwapfile.sh) script.
 
 	sudo ./createSwapfile.sh
+
+**Camera starting throws error**
+
+Unplug and plug in the usb camera connector.
+
+# Installation Guide for Raspberry Pi
+## Preparing the SD Card
+This is a quick start guide to install the raspberry pi image on a SD card (mac)
+
+	sudo diskutil list
+
+search for the `/dev/diskX` entry
+
+	sudo diskutil unmountDisk /dev/disk2
+
+	sudo ddrescue -c 1Ki -v --force ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img /dev/rdisk2
+
+## Raspberry Pi startup
+
+ 1. Follow the instructions given on the screen
+ 2. Connect to the wifi
+ 3. At the dialog indow "Who are you"
+	 check the following
+	- [x] Log in automatically
+	- [ ] Require my password to log in
