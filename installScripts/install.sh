@@ -27,10 +27,10 @@ if [  "$architecture" = "armhf" ]; then
 #
 # this steps are only for the raspy
 #
-	./install_pigpio.sh
-	bash get_gopigo.sh
+	./install_fin.sh
+	bash get_fin.sh
 	./add_bashrc.sh
-	echo "finished pigpio, gopigo and bashrc"
+	echo "finished pigpio, fin and bashrc"
 	debugging $1
 	
 	./raspi_config.sh
@@ -45,7 +45,7 @@ else
 	bash get_fin.sh
 	. /opt/ros/kinetic/setup.bash
 	./add_bashrc.sh
-	echo "finished gopigo and bashrc"
+	echo "finished fin and bashrc"
 	debugging $1
 
 	./3_eigen.sh
