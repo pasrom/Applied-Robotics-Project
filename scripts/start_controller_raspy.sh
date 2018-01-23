@@ -1,4 +1,4 @@
  #!/bin/bash
 
-roslaunch gopigo_description gopigo_interface.launch
+roslaunch fin_description fin_interface.launch
 
