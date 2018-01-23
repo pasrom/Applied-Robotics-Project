@@ -71,6 +71,6 @@ else
 	debugging $1
 
 #install turtlebot-teleop package
-	sudo apt install ros-kinetic-turtlebot-teleop
+	sudo apt -y install ros-kinetic-turtlebot-teleop
 	echo "finished turtlebot-teleop"
 fi
