@@ -143,14 +143,15 @@ search for the `/dev/diskX` entry
 
 # Steering the roboter with a Logitech Controller
 
-With the Logitech Controller it is possible to send a twist message to the roboter. With the left **joystick** you steer the roboter, but you have to press the **LB** Button during steering. The **RB** Button will reset the ORB SLAM2 and the odometry of the roboter
+With the Logitech Controller it is possible to send a twist message to the roboter. With the left **joystick** you steer the roboter, but you have to press the **LB** Button during steering. The **RB** Button will reset the ORB SLAM2 and the odometry of the roboter.
+
 ![Logitech Controller](https://www.logitechg.com/assets/47832/9/f310-gaming-gamepad-images.png)
 
 # Camera Calibration
 
 To calibrate the camera follow this [link](http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration) and this [link](http://wiki.ros.org/camera_calibration/Tutorials/StereoCalibration) for stereo calibration.
 It is good to calibrate the camera at the laptop or computer and **NOT** at the raspberry pi, because it is slow.
-For the ORB SLAM2 there is one more step to do. You have to extract following values out of the camera.yaml file after calibration 
+For the ORB SLAM2 there is one more step to do. You have to extract following values out of the `camera.yaml` file after calibration .
 ```
 camera_matrix:
 fx 0 cx
@@ -162,7 +163,7 @@ d0 d1 d2 d3 0
 
 .........
 ```
-and insert these values in the Logitech640x480.yaml file located at `/ORB_SLAM2/Examples/Monocular/Logitech640x480.yaml`
+and insert these values in the `Logitech640x480.yaml` file located at `/ORB_SLAM2/Examples/Monocular/Logitech640x480.yaml`
 ```
 %YAML:1.0
 
