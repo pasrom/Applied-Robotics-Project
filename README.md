@@ -117,11 +117,12 @@ If building is throwing errors, first check if there is enough memory left. If n
 Unplug and plug in the usb camera connector.
 
 **Not on this list**
+
 Please feel free to open an [issue](https://github.com/pasrom/Applied-Robotics-Project/issues/new).
 
 # Installation Guide for Raspberry Pi
 ## Preparing the SD Card
-This is a quick start guide to install the raspberry pi image on a SD card (mac)
+This is a quick start guide to install the raspberry pi image on a SD card (mac).
 
 	sudo diskutil list
 
