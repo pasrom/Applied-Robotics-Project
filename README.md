@@ -1,4 +1,3 @@
-
 # Applied-Robotics-Project
 This is a project done in the course applied robotics. It's about a mobile roboter, which has a mounted camera on it. This camera is used to slam with [ORB_SLAM2](https://github.com/pasrom/ORB_SLAM2) . The roboter is controlled by a differential drive and has a distance measurement, which is used for speed and pose determination. [ROS](http://www.ros.org)-Kinetic is used to bring all parts together. It is testet with Ubuntu Mate 16.04.2 LTS, both at the master and at the raspberry pi.
 
@@ -11,15 +10,16 @@ Run this procedure at the master computer and also at the raspberry pi. On the r
 		sudo apt-get update && sudo apt install git
 		
  2.  You need to create a folder named workspace in `~/`, for example
-			
-		mkdir ~/workspace
- 3. clone this repo to your computer and to the raspberry pi
+
+		`mkdir ~/workspace`
+
+ 4. clone this repo to your computer and to the raspberry pi
 	 
 		cd ~/workspace
 		git clone https://github.com/pasrom/Applied-Robotics-Project.git
 		cd Applied-Robotics-Project/installScripts
 		 
- 4. run `install.sh` to automatically install ROS and ORB_SLAM2 with all its dependencies.
+ 5. run `install.sh` to automatically install ROS and ORB_SLAM2 with all its dependencies.
 
 		 ./install.sh
 
@@ -27,7 +27,7 @@ Run this procedure at the master computer and also at the raspberry pi. On the r
 
 		chmod +x install.sh
 
- 5. Go grab :coffee: :coffee: :coffee: ...
+ 6. Go grab :coffee: :coffee: :coffee: ...
 
 # Starting the publishers and subscribers
 ## Master
@@ -37,6 +37,16 @@ First start the roscore
 Following command is starting ORB_SLAM2, Camera republisher, rviz, roboter pose updater, map creator and rqt gui
 	   
 	roslaunch fin_starter Master.launch
+
+### Starting each package by hand
+
+	rosrun image_transport republish compressed in:=/camera/image_raw raw out:=/camera/camera_eigen
+	rosrun ORB_SLAM2 Mono Vocabulary/ORBvoc.txt Examples/Monocular/Logitech640x480.yaml
+	rosrun ORB_SLAM2 Monosub2 20 1 10 -15 20 -10 0.55 0.50 1 5 0 0 1 75
+	roslaunch nav_behaviors nav_behaviors.launch
+	roslaunch fin_description fin_rviz.launch
+	
+
 ## Raspberry Pi
 ssh into your raspberry pi.
 
@@ -64,6 +74,12 @@ open again a ssh to your raspberry pi and start the camera and motor velocities 
 If you want to change the IP-address of the master you can do it in this [script](https://github.com/pasrom/Applied-Robotics-Project/blob/master/installScripts/setRosIp.sh). Here is the line:
 
 	MASTER_IP=192.168.0.107
+
+### Starting each package by hand
+
+
+	roslaunch video_stream_opencv camera.launch
+	roslaunch fin_description fin_interface.launch 
 
 ## Known Bugs
 
@@ -100,6 +116,9 @@ If building is throwing errors, first check if there is enough memory left. If n
 
 Unplug and plug in the usb camera connector.
 
+**Not on this list**
+Please feel free to open an [issue](https://github.com/pasrom/Applied-Robotics-Project/issues/new).
+
 # Installation Guide for Raspberry Pi
 ## Preparing the SD Card
 This is a quick start guide to install the raspberry pi image on a SD card (mac)
@@ -121,3 +140,51 @@ search for the `/dev/diskX` entry
 	- [x] Log in automatically
 	- [ ] Require my password to log in
  4. Reboot
+
+# Steering the roboter with a Logitech Controller
+
+With the Logitech Controller it is possible to send a twist message to the roboter. With the left **joystick** you steer the roboter, but you have to press the **LB** Button during steering. The **RB** Button will reset the ORB SLAM2 and the odometry of the roboter
+![Logitech Controller](https://www.logitechg.com/assets/47832/9/f310-gaming-gamepad-images.png)
+
+# Camera Calibration
+
+To calibrate the camera follow this [link](http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration) and this [link](http://wiki.ros.org/camera_calibration/Tutorials/StereoCalibration) for stereo calibration.
+It is good to calibrate the camera at the laptop or computer and **NOT** at the raspberry pi, because it is slow.
+For the ORB SLAM2 there is one more step to do. You have to extract following values out of the camera.yaml file after calibration 
+```
+camera_matrix:
+fx 0 cx
+0 fy cy
+0 0 1
+
+distortion_coefficients:
+d0 d1 d2 d3 0
+
+.........
+```
+and insert these values in the Logitech640x480.yaml file located at `/ORB_SLAM2/Examples/Monocular/Logitech640x480.yaml`
+```
+%YAML:1.0
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+
+# Camera calibration and distortion parameters (OpenCV) 
+Camera.fx: fx
+Camera.fy: fy
+Camera.cx: cx
+Camera.cy: cy
+
+Camera.k1: d0
+Camera.k2: d1
+Camera.p1: d2
+Camera.p2: d3
+Camera.k3: 0.0
+
+.........
+```
+
+# Getting startet with ROS
+
+Follow this [link](http://wiki.ros.org/ROS/Tutorials) and you will be happy to start with ROS.
