@@ -1,3 +1,4 @@
+
 # Applied-Robotics-Project
 This is a project done in the course applied robotics. It's about a mobile roboter, which has a mounted camera on it. This camera is used to slam with [ORB_SLAM2](https://github.com/pasrom/ORB_SLAM2) . The roboter is controlled by a differential drive and has a distance measurement, which is used for speed and pose determination. [ROS](http://www.ros.org)-Kinetic is used to bring all parts together. It is testet with Ubuntu Mate 16.04.2 LTS, both at the master and at the raspberry pi.
 
@@ -8,92 +9,98 @@ This project debends on [ORB_SLAM2](https://github.com/pasrom/ORB_SLAM2) and [fi
 Run this procedure at the master computer and also at the raspberry pi. On the raspberry pi it will only install ROS and pigpio library and gopigo.
 
  1. Maybe you need to install git first
-	
-		sudo apt-get update && sudo apt install git
-		
+	```
+	sudo apt-get update && sudo apt install git
+	```
  2.  You need to create a folder named workspace in `~/`, for example
-
-		`mkdir ~/workspace`
-
+		```
+		mkdir ~/workspace
+		```
  4. clone this repo to your computer and to the raspberry pi
-	 
-		cd ~/workspace
-		git clone https://github.com/pasrom/Applied-Robotics-Project.git
-		cd Applied-Robotics-Project/installScripts
-		 
+	```
+	cd ~/workspace
+	git clone https://github.com/pasrom/Applied-Robotics-Project.git
+	cd Applied-Robotics-Project/installScripts
+	```
  5. run `install.sh` to automatically install ROS and ORB_SLAM2 with all its dependencies.
-
-		 ./install.sh
-
+	```
+	./install.sh
+	```
 	maybe you have to make it executable first
-
-		chmod +x install.sh
-
+	```
+	chmod +x install.sh
+	```
  6. Go grab :coffee: :coffee: :coffee: ...
 
 # Starting the publishers and subscribers
 ## Master
 First start the roscore
-
-	roscore
+```
+roscore
+```
 Following command is starting ORB_SLAM2, Camera republisher, rviz, roboter pose updater, map creator and rqt gui
-	   
-	roslaunch fin_starter Master.launch
-
+```   
+roslaunch fin_starter Master.launch
+```
 ### Starting each package by hand
-
-	rosrun image_transport republish compressed in:=/camera/image_raw raw out:=/camera/camera_eigen
-	rosrun ORB_SLAM2 Mono Vocabulary/ORBvoc.txt Examples/Monocular/Logitech640x480.yaml
-	rosrun ORB_SLAM2 Monosub2 20 1 10 -15 20 -10 0.55 0.50 1 5 0 0 1 75
-	roslaunch nav_behaviors nav_behaviors.launch
-	roslaunch fin_description fin_rviz.launch
 	
+```
+rosrun image_transport republish compressed in:=/camera/image_raw raw out:=/camera/camera_eigen
+rosrun ORB_SLAM2 Mono Vocabulary/ORBvoc.txt Examples/Monocular/Logitech640x480.yaml
+rosrun ORB_SLAM2 Monosub2 20 1 10 -15 20 -10 0.55 0.50 1 5 0 0 1 75
+roslaunch nav_behaviors nav_behaviors.launch
+roslaunch fin_description fin_rviz.launch
+```
 
 ## Raspberry Pi
 ssh into your raspberry pi.
-
-	ssh roman@192.168.0.105
-
+```
+ssh roman@192.168.0.105
+```
 **This has to be done the first time:**
 	
    `$user` is your username, created at the raspberry pi. Also make sure, that therre is only **one** username, otherwise the script may fail.
-	
-	su root
-	/home/$user/workspace/Applied-Robotics-Project/installScripts/add_bashrc.sh
-
-
+```
+su root
+/home/$user/workspace/Applied-Robotics-Project/installScripts/add_bashrc.sh
+```
 ----------
 
 
 Starting the motor and the distance measurement
-
-    su root
-    rosrun motor_cpp motor_cpp
+```
+su root
+rosrun motor_cpp motor_cpp
+```
 open again a ssh to your raspberry pi and start the camera and motor velocities publisher
-   
-    roslaunch fin_starter raspy.launch
+```
+roslaunch fin_starter raspy.launch
+```
 #### IP-Address changing
 If you want to change the IP-address of the master you can do it in this [script](https://github.com/pasrom/Applied-Robotics-Project/blob/master/installScripts/setRosIp.sh). Here is the line:
-
-	MASTER_IP=192.168.0.107
+```
+MASTER_IP=192.168.0.107
+```
 
 ### Starting each package by hand
 
-
-	roslaunch video_stream_opencv camera.launch
-	roslaunch fin_description fin_interface.launch 
+```
+roslaunch video_stream_opencv camera.launch
+roslaunch fin_description fin_interface.launch 
+```
 
 ## Known Bugs
 
  **Make sure, that the environment variables are set correctly.**
  
  Your `~/.bashrc` should look similar like this (scrol to the end of the file):
- 
-	source /opt/ros/kinetic/setup.bash
-	. ~/catkin_ws/devel/setup.bash
-	source ~/gopigo_ws/devel/setup.bash
-	. ~/workspace/Applied-Robotics-Project/installScripts/setRosIp.sh
-	export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:/home/roman/workspace/ORB_SLAM2/Examples/ROS
+```
+source /opt/ros/kinetic/setup.bash
+. ~/catkin_ws/devel/setup.bash
+source ~/gopigo_ws/devel/setup.bash
+. ~/workspace/Applied-Robotics-Project/installScripts/setRosIp.sh
+export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:/home/roman/workspace/ORB_SLAM2/Examples/ROS
+```
 
 Important is, that the line `export ROS_PACKAGE_PATH=...` is at the end.
 
@@ -111,8 +118,9 @@ If you are using a virtual machine, make sure you turned of the 3D acceleration.
 
 
 If building is throwing errors, first check if there is enough memory left. If not, run [this](https://github.com/pasrom/Applied-Robotics-Project/blob/master/installScripts/createSwapfile.sh) script.
-
-	sudo ./createSwapfile.sh
+```
+sudo ./createSwapfile.sh
+```
 
 **Camera starting throws error**
 
@@ -130,9 +138,10 @@ This is a quick start guide to install the raspberry pi image on a SD card (mac)
 
 search for the `/dev/diskX` entry
 
-	sudo diskutil unmountDisk /dev/disk2
-
-	sudo ddrescue -c 1Ki -v --force ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img /dev/rdisk2
+```
+sudo diskutil unmountDisk /dev/disk2
+sudo ddrescue -c 1Ki -v --force ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img /dev/rdisk2
+```
 
 ## Raspberry Pi startup
 
