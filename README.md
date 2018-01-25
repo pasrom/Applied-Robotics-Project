@@ -143,6 +143,12 @@ sudo diskutil unmountDisk /dev/disk2
 sudo ddrescue -c 1Ki -v --force ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img /dev/rdisk2
 ```
 
+Backup your SD with `ddrescue`
+
+```
+sudo ddrescue -c 1Ki -v --force /dev/rdisk2 ubuntu-mate-16.04.2ROS.img
+```
+
 ## Raspberry Pi startup
 
  1. Follow the instructions given on the screen
