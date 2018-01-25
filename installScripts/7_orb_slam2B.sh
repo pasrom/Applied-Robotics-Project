@@ -8,4 +8,5 @@ bash ./build_ros.sh
 # create symbolic link
 mkdir ~/workspace/ORB_SLAM2/Examples/ROS/ORB_SLAM2/src/scripts
 ln -s ~/workspace/ORB_SLAM2/Examples/Monocular/Logitech640x480.yaml ~/workspace/ORB_SLAM2/Examples/ROS/ORB_SLAM2/src/scripts/Logitech640x480.yaml
+ln -s ~/workspace/ORB_SLAM2/Examples/Monocular/fisheEye640x480.yaml ~/workspace/ORB_SLAM2/Examples/ROS/ORB_SLAM2/src/scripts/fisheEye640x480.yaml
 ln -s ~/workspace/ORB_SLAM2/Vocabulary/ORBvoc.txt ~/workspace/ORB_SLAM2/Examples/ROS/ORB_SLAM2/src/scripts/ORBvoc.txt
