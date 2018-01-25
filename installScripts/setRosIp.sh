@@ -11,7 +11,7 @@ if [  "$architecture" = "armhf" ] || [ "$1" != "" ] ; then
 	if [ $IP = *"192.168."* ]; then
     	MASTER_IP=192.168.0.107
     else
-    	MASTER_IP=172.21.200.130
+    	MASTER_IP=172.21.200.250
     fi
 
 	export ROS_MASTER_URI=http://$MASTER_IP:11311
