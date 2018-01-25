@@ -146,7 +146,7 @@ sudo ddrescue -c 1Ki -v --force ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.i
 Backup your SD with `ddrescue`
 
 ```
-sudo ddrescue -c 1Ki -v --force /dev/rdisk2 ubuntu-mate-16.04.2ROS.img
+sudo ddrescue -c 1Ki -v --force /dev/rdisk2 ubuntu-mate-16.04.2_ROS.img
 ```
 
 ## Raspberry Pi startup
