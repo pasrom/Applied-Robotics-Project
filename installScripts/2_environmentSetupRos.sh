@@ -28,4 +28,6 @@ if [ "$1" = "fisheye" ]; then
 else
 	nameCamera="camera_logitech.yaml"
 fi
+
+mkdir ~/.ros/camera_info
 cp ~/workspace/Applied-Robotics-Project/camera_calibration_files/$nameCamera ~/.ros/camera_info/camera.yaml
