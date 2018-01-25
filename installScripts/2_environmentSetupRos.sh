@@ -23,4 +23,9 @@ grep -qF "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
 sudo apt-get install ros-kinetic-video-stream-opencv
 
 # coppy the camera calibration file to the right folder
-cp -a ~/workspace/Applied-Robotics-Project/camera_calibration_files/. ~/.ros/camera_info
+if [ "$1" = "fisheye" ]; then
+	nameCamera="camera_fisheye.yaml"
+else
+	nameCamera="camera_logitech.yaml"
+fi
+cp ~/workspace/Applied-Robotics-Project/camera_calibration_files/$nameCamera ~/.ros/camera_info/camera.yaml
