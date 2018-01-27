@@ -21,6 +21,7 @@ grep -qF "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
 
 # install used package 
 sudo apt-get install ros-kinetic-video-stream-opencv
+sudo apt-get install ros-kinetic-libuvc-camera
 
 # coppy the camera calibration file to the right folder
 if [ "$1" = "fisheye" ]; then
@@ -31,3 +32,6 @@ fi
 
 mkdir ~/.ros/camera_info
 cp ~/workspace/Applied-Robotics-Project/camera_calibration_files/$nameCamera ~/.ros/camera_info/camera.yaml
+
+# this is for the camera streamer
+sudo echo SUBSYSTEMS=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="05a3", ATTRS{idProduct}=="9230", MODE="0666" > /etc/udev/rules.d/99-uvc.rules
