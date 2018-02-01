@@ -8,7 +8,7 @@ architecture="$(dpkg --print-architecture)"
 echo $architecture
 if [  "$architecture" = "armhf" ] || [ "$1" != "" ] ; then
 	echo raspy
-	if [ $IP = *"192.168."* ]; then
+	if [[ $IP = *"192.168"* ]]; then
     	MASTER_IP=192.168.0.107
     else
     	MASTER_IP=172.21.200.250
