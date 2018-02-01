@@ -53,9 +53,10 @@ roslaunch fin_description fin_rviz.launch
 ```
 
 ## Raspberry Pi
-ssh into your raspberry pi.
+ssh into your raspberry pi. If you use two raspberry pi's, one for motor control and one for camera streaming, open for each a seperate ssh.
 ```
-ssh roman@192.168.0.105
+ssh raspy@192.168.0.105
+ssh raspy@192.168.0.106
 ```
 **This has to be done the first time:**
 	
@@ -67,15 +68,22 @@ su root
 ----------
 
 
-Starting the motor and the distance measurement
+Starting the motor, the distance measurement and motor velocities publisher
 ```
 su root
-rosrun motor_cpp motor_cpp
+roslaunch fin_starter raspyMotor.launch
 ```
-open again a ssh to your raspberry pi and start the camera and motor velocities publisher
+open again a ssh to your second raspberry pi and start the camera
+starting fisheye camera:
 ```
-roslaunch fin_starter raspy.launch
+su root
+roslaunch fin_starter raspyCamFisheye.launch 
 ```
+starting normal camera:
+```
+roslaunch fin_starter raspyCam.launch 
+```
+
 #### IP-Address changing
 If you want to change the IP-address of the master you can do it in this [script](https://github.com/pasrom/Applied-Robotics-Project/blob/master/installScripts/setRosIp.sh). Here is the line:
 ```
