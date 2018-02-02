@@ -71,12 +71,14 @@ su root
 ----------
 
 **Raspberry Pi 1**
+
 Starting the motor, the distance measurement and motor velocities publisher
 ```
 su root
 roslaunch fin_starter raspyMotor.launch
 ```
 **Raspberry Pi 2**
+
 open again a ssh to your second raspberry pi and start the camera
 starting fisheye camera:
 ```
