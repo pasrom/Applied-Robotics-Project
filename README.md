@@ -6,7 +6,7 @@ This project debends on [ORB_SLAM2](https://github.com/pasrom/ORB_SLAM2) and [fi
 
 # Installation procedure
 
-Run this procedure at the master computer and also at the raspberry pi. On the raspberry pi it will only install ROS and pigpio library and gopigo. The standard password we used was 
+Run this procedure at the master computer and also at the raspberry pi. On the raspberry pi it will only install ROS and pigpio library and fin_ws. The standard password we used was 
 ```
 fhv
 ```
