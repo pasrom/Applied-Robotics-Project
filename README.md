@@ -6,7 +6,7 @@ This project debends on [ORB_SLAM2](https://github.com/pasrom/ORB_SLAM2) and [fi
 
 # Installation procedure
 
-Run this procedure at the master computer and also at the raspberry pi. On the raspberry pi it will only install ROS and pigpio library and fin_ws. The standard password we used was 
+Run this procedure at the master computer and also at the raspberry pi. On the raspberry pi it will only install ROS and pigpio library and gopigo. The standard password we used was 
 ```
 fhv
 ```
@@ -70,12 +70,13 @@ su root
 ```
 ----------
 
-
+**Raspberry Pi 1**
 Starting the motor, the distance measurement and motor velocities publisher
 ```
 su root
 roslaunch fin_starter raspyMotor.launch
 ```
+**Raspberry Pi 2**
 open again a ssh to your second raspberry pi and start the camera
 starting fisheye camera:
 ```
