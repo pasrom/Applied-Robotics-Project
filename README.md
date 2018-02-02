@@ -6,7 +6,10 @@ This project debends on [ORB_SLAM2](https://github.com/pasrom/ORB_SLAM2) and [fi
 
 # Installation procedure
 
-Run this procedure at the master computer and also at the raspberry pi. On the raspberry pi it will only install ROS and pigpio library and gopigo.
+Run this procedure at the master computer and also at the raspberry pi. On the raspberry pi it will only install ROS and pigpio library and gopigo. The standard password we used was 
+```
+fhv
+```
 
  1. Maybe you need to install git first
 	```
@@ -169,7 +172,7 @@ sudo ddrescue -c 1Ki -v --force /dev/rdisk2 ubuntu-mate-16.04.2_ROS.img
 
 # Steering the roboter with a Logitech Controller
 
-With the Logitech Controller it is possible to send a twist message to the roboter. With the left **joystick** you steer the roboter, but you have to press the **LB** Button during steering. The **RB** Button will reset the ORB SLAM2 and the odometry of the roboter.
+With the Logitech Controller it is possible to send a twist message to the roboter. With the left **joystick** you steer the roboter, but you have to press the **LB** Button during steering. The **LB** Button also resets the trajectory, this means the controller has higer priority than the trajectory. The **RB** Button will reset the ORB SLAM2, the odometry of the roboter and also the scale factor of the published ORB SLAM2 messages.
 
 ![Logitech Controller](https://www.logitechg.com/assets/47832/9/f310-gaming-gamepad-images.png)
 
@@ -212,6 +215,17 @@ Camera.k3: 0.0
 .........
 ```
 
+# Fishe Eye Camera
+If you are using another fisheye camera with [libuvc-camera](http://wiki.ros.org/libuvc_camera) you have to change two parameters in [this](https://github.com/pasrom/Applied-Robotics-Project/blob/9f0ce0b9605aa4ef1c9ed327676b5f6002fffc97/installScripts/2_environmentSetupRos.sh#L37) script. The `idVendor` and `idProduct` has to be changed (without the hex notation).
+```
+sudo echo SUBSYSTEMS=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="05a3", ATTRS{idProduct}=="9230", MODE="0666" > /etc/udev/rules.d/99-uvc.rules
+```
+
+ The `idVendor` and `idProduct` values you will get with the following command
+```
+lsusb -v
+```
+Search for your camera, coppy and paste the mentioned parameters.
 # Getting startet with ROS
 
 Follow this [link](http://wiki.ros.org/ROS/Tutorials) and you will be happy to start with ROS.
