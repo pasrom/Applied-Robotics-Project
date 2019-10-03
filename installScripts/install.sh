@@ -6,6 +6,8 @@ function debugging() {
 	fi
 }
 
+export ROS_DISTRIBUTION=melodic
+
 architecture="$(dpkg --print-architecture)"
 echo Installing on $architecture
 
