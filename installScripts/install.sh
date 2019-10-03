@@ -32,16 +32,16 @@ if [  "$architecture" = "armhf" ]; then
 	./add_bashrc.sh
 	echo "finished pigpio, fin and bashrc"
 	debugging $1
-	
+
 	./raspi_config.sh
 	echo "finished eneabling ssh"
 	debugging $1
 
-	./set_root_pw.sh	
+	./set_root_pw.sh
 else
 #
 # this steps are only for the master / or other clients not raspy
-#	
+#
 	bash get_fin.sh
 	. /opt/ros/$ROS_DISTRIBUTION/setup.bash
 	./add_bashrc.sh
