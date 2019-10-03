@@ -15,7 +15,7 @@ fi
 
 if [  "$USER" = "root" ]; then
 FILE=~root/.bashrc
-LINEC="source /opt/ros/kinetic/setup.bash"
+LINEC="source /opt/ros/$ROS_DISTRIBUTION/setup.bash"
 grep -qF "$LINEC" "$FILE" || echo "$LINEC" >> "$FILE"
 LINED=". /home/$standardUser/catkin_ws/devel/setup.bash"
 grep -qF "$LINED" "$FILE" || echo "$LINED" >> "$FILE"

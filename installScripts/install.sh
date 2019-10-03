@@ -43,7 +43,7 @@ else
 # this steps are only for the master / or other clients not raspy
 #	
 	bash get_fin.sh
-	. /opt/ros/kinetic/setup.bash
+	. /opt/ros/$ROS_DISTRIBUTION/setup.bash
 	./add_bashrc.sh
 	echo "finished fin and bashrc"
 	debugging $1

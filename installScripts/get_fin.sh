@@ -5,7 +5,7 @@ git clone https://github.com/pasrom/fin_ws.git fin_ws
 
 source ~/.bashrc
 #
-source /opt/ros/kinetic/setup.bash
+source /opt/ros/$ROS_DISTRIBUTION/setup.bash
 
 cd ~/fin_ws
 

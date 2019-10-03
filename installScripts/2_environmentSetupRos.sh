@@ -1,12 +1,12 @@
  #!/bin/bash
 
-LINEA='source /opt/ros/kinetic/setup.bash'
+LINEA='source /opt/ros/$ROS_DISTRIBUTION/setup.bash'
 FILE=~/.bashrc
 grep -qF "$LINEA" "$FILE" || echo "$LINEA" >> "$FILE"
 
 source ~/.bashrc
 #
-source /opt/ros/kinetic/setup.bash
+source /opt/ros/$ROS_DISTRIBUTION/setup.bash
 
 # create ros workspace
 mkdir -p ~/catkin_ws/src
@@ -20,8 +20,8 @@ FILE=~/.bashrc
 grep -qF "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
 
 # install used package 
-sudo apt-get install ros-kinetic-video-stream-opencv
-sudo apt-get install ros-kinetic-libuvc-camera
+sudo apt-get install ros-$ROS_DISTRIBUTION-video-stream-opencv
+sudo apt-get install ros-$ROS_DISTRIBUTION-libuvc-camera
 
 # coppy the camera calibration file to the right folder
 if [ "$1" = "fisheye" ]; then
