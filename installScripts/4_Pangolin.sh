@@ -7,7 +7,7 @@ sudo apt-get -y install libpython2.7-dev
 sudo apt-get -y install ffmpeg libavcodec-dev libavutil-dev libavformat-dev libswscale-dev
 sudo apt-get -y install libdc1394-22-dev libraw1394-dev
 
-sudo apt-get -y install libjpeg-dev libpng12-dev libtiff5-dev libopenexr-dev
+sudo apt-get -y install libjpeg-dev libpng-dev libtiff5-dev libopenexr-dev
 sudo apt-get -y install doxygen
 
 #building
